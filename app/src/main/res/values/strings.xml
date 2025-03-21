@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Donation</string>
+    <string name="donateTitle">Welcome Homer</string>
+    <string name="donateSubtitle">Please Give Generously</string>
+    <string name="donateButton">DONATE</string>
+    <string name="paypal">PayPal</string>
+    <string name="direct">Direct</string>
 </resources>
