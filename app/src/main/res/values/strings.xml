@@ -5,4 +5,5 @@
     <string name="donateButton">DONATE</string>
     <string name="paypal">PayPal</string>
     <string name="direct">Direct</string>
+    <string name="reportTitle">Report</string>
 </resources>
