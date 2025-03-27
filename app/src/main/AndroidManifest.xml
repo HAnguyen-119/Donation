@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Donation"
         tools:targetApi="31">
         <activity
-            android:name=".Donate"
+            android:name=".activities.Donate"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Report">
+        <activity android:name=".activities.Report">
 
         </activity>
     </application>

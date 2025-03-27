@@ -6,4 +6,6 @@
     <string name="paypal">PayPal</string>
     <string name="direct">Direct</string>
     <string name="reportTitle">Report</string>
+    <string name="defaultAmount">Amount</string>
+    <string name="defaultMethod">Method</string>
 </resources>
