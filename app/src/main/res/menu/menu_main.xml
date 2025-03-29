@@ -12,4 +12,10 @@
         android:title="Report"
         android:onClick="report"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_reset"
+        android:title="Reset"
+        android:onClick="reset"
+        app:showAsAction="never" />
 </menu>

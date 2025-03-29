@@ -1,6 +1,7 @@
 package com.example.donation.activities;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ListView;
 import androidx.appcompat.widget.Toolbar;
 
@@ -18,7 +19,13 @@ public class Report extends Base {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         listView = findViewById(R.id.reportList);
-        DonationAdapter adapter = new DonationAdapter(this, donations);
+        DonationAdapter adapter = new DonationAdapter(this, app.dbManager.getAll());
         listView.setAdapter(adapter);
+    }
+
+    @Override
+    public void reset(MenuItem item) {
+        super.reset(item);
+        listView.setAdapter(null);
     }
 }

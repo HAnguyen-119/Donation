@@ -2,6 +2,7 @@ package com.example.donation.activities;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -43,18 +44,19 @@ public class Donate extends Base {
         });
         donateButton = findViewById(R.id.donateButton);
         paymentMethod =  findViewById(R.id.paymentMethod);
+
         progressBar = findViewById(R.id.progressBar);
 
         amountPicker = findViewById(R.id.amountPicker);
         amountPicker.setMinValue(0);
         amountPicker.setMaxValue(1000);
-        progressBar.setMax(target);
-        progressBar.setProgress(totalDonated);
+        progressBar.setMax(app.target);
+        progressBar.setProgress(app.totalDonated);
 
         amount = findViewById(R.id.amount);
         amountPicker.setOnValueChangedListener((picker, oldVal, newVal) -> amount.setText("$" + amountPicker.getValue()));
         totalSoFar = findViewById(R.id.totalSoFar);
-        totalSoFar.setText("$" + totalDonated);
+        totalSoFar.setText("$" + app.totalDonated);
         if (donateButton != null) {
             Log.v("Donate", "Really got the donate button");
         }
@@ -65,10 +67,21 @@ public class Donate extends Base {
         int radioId = paymentMethod.getCheckedRadioButtonId();
         String method = radioId == R.id.paypalButton ? "PayPal" : "Direct";
         Donation donation = new Donation(amount, method);
-        newDonation(donation);
-        totalSoFar.setText("$" + totalDonated);
-        progressBar.setProgress(totalDonated);
+        app.newDonation(donation);
+        totalSoFar.setText("$" + app.totalDonated);
+        progressBar.setProgress(app.totalDonated);
 
-        Log.v("Donate", "Donate " + amount + " with method " + method + ". Current total : " + totalDonated);
+        Log.v("Donate", "Donate " + amount + " with method " + method + ". Current total : " + app.totalDonated);
+    }
+
+    @Override
+    public void reset(MenuItem item) {
+        super.reset(item);
+        progressBar.setProgress(app.totalDonated);
+        totalSoFar.setText("$" + app.totalDonated);
+        progressBar.setProgress(app.totalDonated);
+        amountPicker.setValue(0);
+        amount.setText("$0");
+        paymentMethod.clearCheck();
     }
 }
